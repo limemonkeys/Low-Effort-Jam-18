@@ -9,6 +9,7 @@ public class MovePizza : MonoBehaviour
     private float originalSpeed;
     public bool pizzaComplete;
     public Vector2 startingPosition;
+    public GameObject gameManager;
 
     void Start() 
     {
@@ -34,10 +35,11 @@ public class MovePizza : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("In hehe");
-        if (other.gameObject.tag == "PizzaChecker") 
+        if (other.gameObject.name == "Pizza Checker") 
         {
             transform.position = startingPosition;
             speed = originalSpeed;
+            gameManager.GetComponent<GameManager>().DecreaseLife();
         }
     }
 }
