@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public List<string> toppingsOnPizza;
     public List<string> pizzaToppingsRequired;
 
+    public GameObject movePizza;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +27,9 @@ public class GameManager : MonoBehaviour
         toppingsOnPizza.Add(topping);
         Debug.Log(toppingsOnPizza);
 
-        bool pizzaStatus = CheckPizzaComplete();
-        print("PizzaFinished: " + pizzaStatus);
+
+        movePizza.GetComponent<MovePizza>().SetPizzaComplete(CheckPizzaComplete());
+        
     }
 
     public void DecreaseLife() 
@@ -34,8 +37,9 @@ public class GameManager : MonoBehaviour
         lives -= 1;
     }
 
-    private void GenerateNextPizza() 
+    public void GenerateNextPizza() 
     {
+        toppingsOnPizza.Clear();
         pizzaToppingsRequired.Clear();
         pizzaToppingsRequired.Add("Money Sauce Item");
         print("Next pizza: " + pizzaToppingsRequired.Count);
@@ -43,24 +47,6 @@ public class GameManager : MonoBehaviour
 
     private bool CheckPizzaComplete() 
     {
-        /*
-        bool pizzaComplete = true;
-        if (toppingsOnPizza.Count == pizzaToppingsRequired.Count) 
-        {
-            for (currTopping in toppingsOnPizza)
-            {
-                if (!pizzaToppingsRequired.Contains(currTopping))
-                {
-                    pizzaComplete = false;
-                }
-            }
-        }
-        else
-        {
-            pizzaComplete = false;
-        }
-        return pizzaComplete;
-        */
 
         bool pizzaComplete = true;
         if (toppingsOnPizza.Count == pizzaToppingsRequired.Count)
@@ -78,6 +64,7 @@ public class GameManager : MonoBehaviour
         {
             pizzaComplete = false;
         }
+        
         return pizzaComplete;
     }
 }

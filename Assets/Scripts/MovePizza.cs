@@ -27,7 +27,7 @@ public class MovePizza : MonoBehaviour
         }
         else 
         {
-            speed += 10;
+            speed += 5;
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
     }
@@ -37,7 +37,7 @@ public class MovePizza : MonoBehaviour
         Debug.Log("In hehe");
         if (other.gameObject.name == "Pizza Checker") 
         {
-            
+            SetPizzaComplete(false);
             originalSpeed += 10;
             speed = originalSpeed;
             transform.position = startingPosition;
@@ -46,6 +46,15 @@ public class MovePizza : MonoBehaviour
                 gameManager.GetComponent<GameManager>().DecreaseLife();
             }
             
+        }
+    }
+
+    public void SetPizzaComplete(bool pizzaComplete) 
+    {
+        this.pizzaComplete = pizzaComplete;
+        if (pizzaComplete) 
+        {
+            gameManager.GetComponent<GameManager>().GenerateNextPizza();
         }
     }
 

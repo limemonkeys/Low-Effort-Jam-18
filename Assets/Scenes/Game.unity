@@ -1316,6 +1316,7 @@ MonoBehaviour:
   lives: 3
   toppingsOnPizza: []
   pizzaToppingsRequired: []
+  movePizza: {fileID: 1702804233}
 --- !u!4 &2012628356
 Transform:
   m_ObjectHideFlags: 0
