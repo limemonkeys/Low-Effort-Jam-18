@@ -37,9 +37,16 @@ public class MovePizza : MonoBehaviour
         Debug.Log("In hehe");
         if (other.gameObject.name == "Pizza Checker") 
         {
-            transform.position = startingPosition;
+            
+            originalSpeed += 10;
             speed = originalSpeed;
-            gameManager.GetComponent<GameManager>().DecreaseLife();
+            transform.position = startingPosition;
+            if (!pizzaComplete) 
+            {
+                gameManager.GetComponent<GameManager>().DecreaseLife();
+            }
+            
         }
     }
+
 }
