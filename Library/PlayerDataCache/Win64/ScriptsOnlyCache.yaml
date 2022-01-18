@@ -9,11 +9,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -30,6 +27,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -49,28 +47,32 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1524}
+      Script: {instanceID: 1522}
     - Class: 114
-      Script: {instanceID: 2524}
+      Script: {instanceID: 2424}
     - Class: 114
-      Script: {instanceID: 2678}
+      Script: {instanceID: 2522}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2676}
     - Class: 114
-      Script: {instanceID: 3086}
+      Script: {instanceID: 2848}
     - Class: 114
-      Script: {instanceID: 3266}
+      Script: {instanceID: 3084}
     - Class: 114
-      Script: {instanceID: 3334}
+      Script: {instanceID: 3264}
     - Class: 114
-      Script: {instanceID: 4428}
+      Script: {instanceID: 3332}
     - Class: 114
-      Script: {instanceID: 4608}
+      Script: {instanceID: 4426}
+    - Class: 114
+      Script: {instanceID: 4606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -293,7 +295,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: e9539b36af987b1fc4d5169f5d2f3d29
+      Hash: 7711c080e915493b473e7925bf161817
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DragDrop
@@ -467,7 +469,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: bf2dc8301fc95ff3c74792dc7aab6ba6
+      Hash: b2ddc51632cbfa574ff1326c91601c2c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
