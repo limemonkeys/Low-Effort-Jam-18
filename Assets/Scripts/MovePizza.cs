@@ -11,6 +11,16 @@ public class MovePizza : MonoBehaviour
     public Vector2 startingPosition;
     public GameObject gameManager;
 
+    public AudioSource Cash1;
+    public AudioSource Cash2;
+
+    public AudioSource FogHorn;
+    public AudioSource Farts;
+
+    public AudioSource Monkey1;
+    public AudioSource Monkey2;
+    public AudioSource Monkey3;
+
     void Start() 
     {
         originalSpeed = speed;
@@ -27,7 +37,7 @@ public class MovePizza : MonoBehaviour
         }
         else 
         {
-            speed += 10;
+            speed += 20;
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
     }
@@ -35,16 +45,22 @@ public class MovePizza : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.name == "Pizza Checker") 
-        {
-            // JESUS CHRIST FIX THIS SHOULDNT ALWAYS BE FALSE
-            SetPizzaComplete(false);
+        {            
             originalSpeed += 10;
             speed = originalSpeed;
             transform.position = startingPosition;
-            if (!pizzaComplete) 
+            if (!pizzaComplete)
             {
                 gameManager.GetComponent<GameManager>().DecreaseLife();
+                RandomMonkey();
+                FogHorn.Play();
+                Farts.Play();
             }
+            else 
+            {
+                RandomCash();
+            }
+            SetPizzaComplete(false);
             gameManager.GetComponent<GameManager>().ResetMyPizza();
             gameManager.GetComponent<GameManager>().GenerateNextPizza();
         }
@@ -57,6 +73,34 @@ public class MovePizza : MonoBehaviour
         
     }
 
-    
+    private void RandomMonkey()
+    {
+        int randNum = Random.Range(0, 3);
+        if (randNum == 0)
+        {
+            Monkey1.Play();
+        }
+        else if (randNum == 1)
+        {
+            Monkey2.Play();
+        }
+        else 
+        {
+            Monkey3.Play();
+        }
+    }
+
+    private void RandomCash()
+    {
+        int randNum = Random.Range(0, 2);
+        if (randNum == 0)
+        {
+            Cash1.Play();
+        }
+        else
+        {
+            Cash2.Play();
+        }
+    }
 
 }

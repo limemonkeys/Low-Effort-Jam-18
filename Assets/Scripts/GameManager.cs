@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
     public GameObject customerEthereum;
     public GameObject customerBaldcoin;
 
+    public AudioSource Splat1;
+    public AudioSource Splat2;
+    public AudioSource Splat3;
+
+    public AudioSource Coins1;
+    public AudioSource Coins2;
+    public AudioSource Coins3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,31 +57,38 @@ public class GameManager : MonoBehaviour
     {
         if (topping == "Pizza Sauce Item")
         {
+            RandomSplat();
             PizzaSauce.SetActive(true);
         }
         if (topping == "Alfredo Sauce Item")
         {
+            RandomSplat();
             AlfredoSauce.SetActive(true);
         }
         if (topping == "Cheese Item")
         {
+            RandomSplat();
             Cheese.SetActive(true);
         }
 
         if (topping == "Bitcoin Item")
         {
+            RandomCoin();
             Bitcoin.SetActive(true);
         }
         if (topping == "Dogecoin Item")
         {
+            RandomCoin();
             Dogecoin.SetActive(true);
         }
         if (topping == "Ethereum Item")
         {
+            RandomCoin();
             Ethereum.SetActive(true);
         }
         if (topping == "Baldcoin Item")
         {
+            RandomCoin();
             Baldcoin.SetActive(true);
         }
 
@@ -194,5 +209,39 @@ public class GameManager : MonoBehaviour
         Dogecoin.SetActive(false);
         Ethereum.SetActive(false);
         Baldcoin.SetActive(false);
+    }
+
+    private void RandomCoin()
+    {
+        int randNum = Random.Range(0, 3);
+        if (randNum == 0)
+        {
+            Coins1.Play();
+        }
+        else if (randNum == 1)
+        {
+            Coins2.Play();
+        }
+        else
+        {
+            Coins3.Play();
+        }
+    }
+
+    private void RandomSplat()
+    {
+        int randNum = Random.Range(0, 3);
+        if (randNum == 0)
+        {
+            Splat1.Play();
+        }
+        else if (randNum == 1)
+        {
+            Splat2.Play();
+        }
+        else
+        {
+            Splat3.Play();
+        }
     }
 }
