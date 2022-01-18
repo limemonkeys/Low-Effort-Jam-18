@@ -37,7 +37,11 @@ public class GameManager : MonoBehaviour
         availableToppings.Add("Dogecoin Item");
         availableToppings.Add("Ethereum Item");
         availableToppings.Add("Baldcoin Item");
-        originalToppings = availableToppings;
+        originalToppings.Add("Bitcoin Item");
+        originalToppings.Add("Dogecoin Item");
+        originalToppings.Add("Ethereum Item");
+        originalToppings.Add("Baldcoin Item");
+        
         GenerateNextPizza();
     }
     
@@ -89,8 +93,13 @@ public class GameManager : MonoBehaviour
 
         toppingsOnPizza.Clear();
         pizzaToppingsRequired.Clear();
+        availableToppings.Clear();
         ResetOrder();
-        availableToppings = originalToppings;
+        for (int i = 0; i < 4; i++) 
+        {
+            availableToppings.Add(originalToppings[i]);
+        }
+        
         int pizzaOrAlfredo = Random.Range(0, 2);
         if (pizzaOrAlfredo == 0)
         {
@@ -112,8 +121,13 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < numToppings; i++) 
         {
+            Debug.Log("IN " + i);
             int ranNum = Random.Range(0, availableToppings.Count);
+            Debug.Log("RANNUM" + ranNum);
+            Debug.Log("AVAIL TOP COUNT" + availableToppings.Count);
             string chosenTopping = availableToppings[ranNum];
+            Debug.Log("CHOSENTOPPING" + chosenTopping);
+
             Debug.Log(chosenTopping);
             if (chosenTopping == "Bitcoin Item") 
             {

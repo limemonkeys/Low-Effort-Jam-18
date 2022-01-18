@@ -36,6 +36,7 @@ public class MovePizza : MonoBehaviour
     {
         if (other.gameObject.name == "Pizza Checker") 
         {
+            // JESUS CHRIST FIX THIS SHOULDNT ALWAYS BE FALSE
             SetPizzaComplete(false);
             originalSpeed += 10;
             speed = originalSpeed;
@@ -45,16 +46,15 @@ public class MovePizza : MonoBehaviour
                 gameManager.GetComponent<GameManager>().DecreaseLife();
             }
             gameManager.GetComponent<GameManager>().ResetMyPizza();
+            gameManager.GetComponent<GameManager>().GenerateNextPizza();
         }
     }
 
     public void SetPizzaComplete(bool pizzaComplete) 
     {
         this.pizzaComplete = pizzaComplete;
-        if (pizzaComplete) 
-        {
-            gameManager.GetComponent<GameManager>().GenerateNextPizza();
-        }
+        
+        
     }
 
     
