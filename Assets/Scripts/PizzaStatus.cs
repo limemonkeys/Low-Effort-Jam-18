@@ -14,15 +14,14 @@ public class PizzaStatus : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
+        //Debug.Log("OnDrop");
         if (eventData.pointerDrag != null) 
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            if (eventData.pointerDrag.tag == "Topping") 
+            if (eventData.pointerDrag.tag == "Topping")
             {
                 gameManager.GetComponent<GameManager>().AddTopping(eventData.pointerDrag.name);
             }
-            Debug.Log(eventData.pointerDrag.name);
             
         }
     }
